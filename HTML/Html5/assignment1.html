@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Forms Assignment</title>
+</head>
+<body>
+
+    <!-- Part 1: Visitor Information Form with HTML5 Attributes -->
+    <div id="visitor-form">
+        <h1>Visitors information</h1>
+        <hr>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="email">Email address:</label></td>
+                    <td>
+                        <!-- HTML5 type="email", placeholder, required, and multiple attributes -->
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required multiple>
+                    </td>
+                </tr>
+                <tr>
+                    <td>User's interest:</td>
+                    <td>
+                        <input type="checkbox" id="research" name="interest" value="research">
+                        <label for="research">Research</label>
+                        <input type="checkbox" id="purchase" name="interest" value="purchase">
+                        <label for="purchase">Purchase</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="occupation">Occupation:</label></td>
+                    <td>
+                        <select id="occupation" name="occupation" required>
+                            <option value="" disabled selected>(select one)</option>
+                            <option value="student">Student</option>
+                            <option value="employed">Employed</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Want us to send you junk emails?</td>
+                    <td>
+                        <input type="radio" id="absolutely" name="junk_email" value="absolutely" required>
+                        <label for="absolutely">absolutely</label>
+                        <input type="radio" id="noway" name="junk_email" value="no way man">
+                        <label for="noway">no way man</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit"></td>
+                    <td><input type="reset" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <br>
+    <hr style="border: 2px solid #ccc;">
+    <br>
+
+    <!-- Part 2: Online Registration Form with HTML5 Attributes -->
+    <div id="registration-form">
+        <center>
+            <h2>Online Registration Form</h2>
+            <form>
+                <table cellpadding="6">
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                        <td><input type="text" id="username" name="username" placeholder="Enter username" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password" placeholder="Enter password" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="confirm_password">Confirm password:</label></td>
+                        <td><input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name" placeholder="Enter full name" required></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address:</label></td>
+                        <td>
+                            <textarea id="address" name="address" rows="4" cols="22" placeholder="Enter full street address" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="profession">Profession:</label></td>
+                        <td>
+                            <select id="profession" name="profession" required>
+                                <option value="" disabled selected>(Select Profession)</option>
+                                <option value="student">Student</option>
+                                <option value="engineer">Engineer</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <br>
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+
+</body>
+</html>

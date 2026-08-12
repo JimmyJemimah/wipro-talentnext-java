@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms - Assignment 2</title>
+</head>
+<body>
+
+    <h1>Visitors information</h1>
+    <hr>
+
+    <form>
+        <table>
+            <tr>
+                <td><label for="email">Email address:</label></td>
+                <td><input type="text" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>User's interest:</td>
+                <td>
+                    <input type="checkbox" id="research" name="interest" value="research">
+                    <label for="research">Research</label>
+                    <input type="checkbox" id="purchase" name="interest" value="purchase">
+                    <label for="purchase">Purchase</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="occupation">Occupation:</label></td>
+                <td>
+                    <select id="occupation" name="occupation">
+                        <option value="" selected>(select one)</option>
+                        <option value="student">Student</option>
+                        <option value="employed">Employed</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Want us to send you junk emails?</td>
+                <td>
+                    <input type="radio" id="absolutely" name="junk_email" value="absolutely">
+                    <label for="absolutely">absolutely</label>
+                    <input type="radio" id="noway" name="junk_email" value="no way man">
+                    <label for="noway">no way man</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+                <td><input type="reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
