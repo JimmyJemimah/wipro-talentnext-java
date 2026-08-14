@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3 - Remove Characters</title>
+</head>
+<body>
+
+    <script>
+        function removeCharacters(str, count) {
+            return str.slice(count);
+        }
+
+        let originalStr = "JavaScript Programming";
+        let charsToRemove = 4;
+        let result = removeCharacters(originalStr, charsToRemove);
+
+        document.write("Original String: " + originalStr + "<br>");
+        document.write("After removing first " + charsToRemove + " characters: " + result);
+    </script>
+
+</body>
+</html>

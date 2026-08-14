@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 2 - Phone Format Validation</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function validatePhoneForm() {
+            let phoneNum = document.getElementById("phoneNum");
+            let phoneValue = phoneNum.value.trim();
+
+            // Check if entered
+            if (phoneValue === "") {
+                alert("Error: Phone Number must be entered.");
+                phoneNum.focus();
+                return false;
+            }
+
+            // Regex matches XXX-XXX-XXXX, XXX.XXX.XXXX, or XXX XXX XXXX
+            let phonePattern = /^\d{3}[-.\s]\d{3}[-.\s]\d{4}$/;
+
+            if (!phonePattern.test(phoneValue)) {
+                alert("Error: Phone Number must be in one of the following formats:\nXXX-XXX-XXXX\nXXX.XXX.XXXX\nXXX XXX XXXX");
+                phoneNum.focus();
+                return false;
+            }
+
+            alert("Phone number is valid!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Contact Form</h2>
+    <form onsubmit="return validatePhoneForm()">
+        <div class="form-group">
+            <label for="phoneNum">Phone Number:</label><br>
+            <input type="text" id="phoneNum" name="phoneNum" placeholder="123-456-7890">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1 - Form Validation</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let memberNum = document.getElementById("memberNum");
+            let password = document.getElementById("password");
+
+            // 1. Validate Member Number
+            if (memberNum.value.trim() === "") {
+                alert("Error: Member number must be entered.");
+                memberNum.focus(); // Place cursor in the first field in error
+                return false;
+            }
+
+            if (isNaN(memberNum.value.trim())) {
+                alert("Error: Member number must be a valid number.");
+                memberNum.focus();
+                return false;
+            }
+
+            // 2. Validate Password
+            if (password.value === "") {
+                alert("Error: Password must be entered.");
+                password.focus();
+                return false;
+            }
+
+            if (password.value.length <= 4) {
+                alert("Error: Password must be longer than 4 characters.");
+                password.focus();
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Member Login Form</h2>
+    <form onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="memberNum">Member Number:</label><br>
+            <input type="text" id="memberNum" name="memberNum">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

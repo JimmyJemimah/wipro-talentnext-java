@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3 - Password Strength Check</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function checkPasswordStrength(password) {
+            // Regex Breakdown:
+            // ^                  - Start of string
+            // (?=.*\d)           - Must contain at least one numeric digit
+            // (?=.*[a-z])        - Must contain at least one lowercase letter
+            // (?=.*[A-Z])        - Must contain at least one uppercase letter
+            // .{6,20}            - Length must be between 6 and 20 characters
+            // $                  - End of string
+            let pwdPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+            return pwdPattern.test(password);
+        }
+
+        function validatePasswordForm() {
+            let pwdInput = document.getElementById("password");
+            let password = pwdInput.value;
+
+            if (checkPasswordStrength(password)) {
+                alert("Valid Password!");
+                return true;
+            } else {
+                alert("Error: Password must be 6 to 20 characters long and contain at least one numeric digit, one uppercase letter, and one lowercase letter.");
+                pwdInput.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Password Validation</h2>
+    <form onsubmit="return validatePasswordForm()">
+        <div class="form-group">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <button type="submit">Validate</button>
+    </form>
+
+</body>
+</html>

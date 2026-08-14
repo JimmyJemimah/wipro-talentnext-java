@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 4 - Calculate Sum</title>
+</head>
+<body>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="calculateSum()">Calculate</button>
+
+    <script>
+        function calculateSum() {
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("Please enter valid numbers in both fields.");
+            } else {
+                let sum = n1 + n2;
+                alert("The sum is: " + sum);
+            }
+        }
+    </script>
+
+</body>
+</html>

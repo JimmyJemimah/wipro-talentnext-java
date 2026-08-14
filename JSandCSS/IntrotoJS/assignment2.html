@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment 2 - Reverse Number</title>
+</head>
+<body>
+
+    <h2>Reverse Number Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        function reverseNumber(num) {
+            // Convert number to string, split into array, reverse array, join back, convert to number
+            let reversed = parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num);
+            return reversed;
+        }
+
+        let x = 32243;
+        let output = reverseNumber(x);
+        
+        document.getElementById('result').innerHTML = "Original: " + x + "<br>Reversed: " + output;
+        console.log("Reversed Number:", output);
+    </script>
+
+</body>
+</html>

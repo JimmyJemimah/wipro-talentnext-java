@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment 4 - Capitalize Words</title>
+</head>
+<body>
+
+    <h2>Title Case Converter Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        function capitalizeFirstLetter(str) {
+            return str
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        let inputStr = "the quick brown fox jumps over the lazy dog";
+        let outputStr = capitalizeFirstLetter(inputStr);
+
+        document.getElementById('result').innerHTML = 
+            "<b>Original:</b> " + inputStr + "<br><b>Result:</b> " + outputStr;
+        console.log("Capitalized String:", outputStr);
+    </script>
+
+</body>
+</html>

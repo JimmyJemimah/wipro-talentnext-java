@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 6 - Background Color Links</title>
+</head>
+<body>
+
+    <h2>Click a link to change background color:</h2>
+    <a href="#" onclick="changeBg('white')">white</a> |
+    <a href="#" onclick="changeBg('red')">red</a> |
+    <a href="#" onclick="changeBg('blue')">blue</a> |
+    <a href="#" onclick="changeBg('pink')">pink</a>
+
+    <script>
+        function changeBg(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>

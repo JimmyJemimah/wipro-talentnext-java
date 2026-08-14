@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 10 - Image Border</title>
+    <style>
+        .box {
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 24px;
+            border: 30px solid transparent;
+            border-image-source: url('C:/Users/jjimm/OneDrive/Pictures/Camera Roll/WIN_20250608_22_09_52_Pro.jpg');
+            border-image-slice: 30;
+        }
+
+        /* Condition a: Image repeats itself to fit contents */
+        .repeat-border {
+            border-image-repeat: repeat;
+        }
+
+        /* Condition b: Image stretches to fit contents */
+        .stretch-border {
+            border-image-repeat: stretch;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>a. Border Image Repeating</h2>
+    <div class="box repeat-border">
+        Welcome to CSS World
+    </div>
+
+    <h2>b. Border Image Stretching</h2>
+    <div class="box stretch-border">
+        Welcome to CSS World
+    </div>
+
+</body>
+</html>

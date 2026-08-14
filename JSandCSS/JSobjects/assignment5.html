@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 5 - Uppercase on Blur</title>
+</head>
+<body>
+
+    <label for="strInput">Enter text: </label>
+    <input type="text" id="strInput" onblur="transformToUpper()">
+
+    <script>
+        function transformToUpper() {
+            let inputField = document.getElementById("strInput");
+            inputField.value = inputField.value.toUpperCase();
+        }
+    </script>
+
+</body>
+</html>

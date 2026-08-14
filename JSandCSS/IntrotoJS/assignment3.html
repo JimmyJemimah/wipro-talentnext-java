@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment 3 - Palindrome Check</title>
+</head>
+<body>
+
+    <h2>Palindrome Check Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        function isPalindrome(str) {
+            // Clean string: remove non-alphanumeric characters and convert to lowercase
+            let cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+            let reversedStr = cleanedStr.split('').reverse().join('');
+            
+            return cleanedStr === reversedStr;
+        }
+
+        let testString = "madam";
+        let check = isPalindrome(testString);
+
+        document.getElementById('result').innerHTML = 
+            "Is '" + testString + "' a palindrome? <b>" + check + "</b>";
+        console.log("Is Palindrome:", check);
+    </script>
+
+</body>
+</html>
