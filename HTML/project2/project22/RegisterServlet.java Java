@@ -1,0 +1,42 @@
+package com.talentnext;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String userId = request.getParameter("userId");
+        String pass = request.getParameter("password");
+        String dob = request.getParameter("dob");
+        String gender = request.getParameter("gender");
+        String state = request.getParameter("state");
+        String contact = request.getParameter("contact");
+        String address = request.getParameter("address");
+
+        try (Connection con = DBConnection.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(
+                "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?)"
+            );
+            ps.setString(1, userId);
+            ps.setString(2, pass);
+            ps.setString(3, dob);
+            ps.setString(4, gender);
+            ps.setString(5, state);
+            ps.setString(6, contact);
+            ps.setString(7, address);
+
+            int result = ps.executeUpdate();
+            if (result > 0) {
+                response.sendRedirect("login.html");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

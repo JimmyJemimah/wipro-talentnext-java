@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <script>
+        function validateRegistrationForm() {
+            let userId = document.forms["regForm"]["userId"].value;
+            let password = document.forms["regForm"]["password"].value;
+            let dob = document.forms["regForm"]["dob"].value;
+            let contact = document.forms["regForm"]["contact"].value;
+
+            // UserID Validation: 4 to 8 characters
+            if (userId.length < 4 || userId.length > 8) {
+                alert("UserID should contain minimum 4 and maximum 8 characters.");
+                return false;
+            }
+
+            // Password Validation
+            let passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+            if (password === "") {
+                alert("Password should not be empty.");
+                return false;
+            }
+            if (password.length < 6) {
+                alert("Password can't be less than 6 characters.");
+                return false;
+            }
+            if (!passwordRegex.test(password)) {
+                alert("Password must contain at least one uppercase letter and one number.");
+                return false;
+            }
+
+            // DOB Validation: Must be less than today's date
+            if (dob) {
+                let selectedDate = new Date(dob);
+                let today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate >= today) {
+                    alert("Date of Birth should be less than today's date.");
+                    return false;
+                }
+            } else {
+                alert("Please select a valid Date of Birth.");
+                return false;
+            }
+
+            // Contact Number Validation: Exactly 10 digits
+            let contactRegex = /^\d{10}$/;
+            if (!contactRegex.test(contact)) {
+                alert("Contact Number should be exactly equal to 10 digits.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="regForm" action="RegisterServlet" method="post" onsubmit="return validateRegistrationForm()">
+        <table cellpadding="5">
+            <tr>
+                <td>User Id :</td>
+                <td><input type="text" name="userId" required></td>
+            </tr>
+            <tr>
+                <td>Password :</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td>Date Of birth :</td>
+                <td><input type="date" name="dob" required></td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" checked> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>State :</td>
+                <td>
+                    <select name="state">
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Contact number:</td>
+                <td><input type="number" name="contact" required></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" rows="4" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="submit"></td>
+                <td><input type="reset" value="reset"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
