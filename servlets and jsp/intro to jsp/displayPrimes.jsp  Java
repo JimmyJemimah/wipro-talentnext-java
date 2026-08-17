@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers Result</title>
+</head>
+<body>
+    <h2>Prime Numbers Less Than <%= request.getAttribute("limit") %></h2>
+    <%
+        @SuppressWarnings("unchecked")
+        ArrayList<Integer> primeList = (ArrayList<Integer>) request.getAttribute("primeList");
+    %>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <tr bgcolor="#cccccc">
+            <th>S.No</th>
+            <th>Prime Number</th>
+        </tr>
+        <%
+            if (primeList != null && !primeList.isEmpty()) {
+                for (int i = 0; i < primeList.size(); i++) {
+        %>
+        <tr>
+            <td><%= (i + 1) %></td>
+            <td><%= primeList.get(i) %></td>
+        </tr>
+        <%
+                }
+            } else {
+        %>
+        <tr>
+            <td colspan="2">No prime numbers found.</td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>

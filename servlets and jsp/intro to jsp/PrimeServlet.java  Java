@@ -1,0 +1,40 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/PrimeServlet")
+public class PrimeServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        ArrayList<Integer> primeList = new ArrayList<>();
+
+        for (int i = 2; i < limit; i++) {
+            if (isPrime(i)) {
+                primeList.add(i);
+            }
+        }
+
+        request.setAttribute("primeList", primeList);
+        request.setAttribute("limit", limit);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("displayPrimes.jsp");
+        dispatcher.forward(request, response);
+    }
+}
