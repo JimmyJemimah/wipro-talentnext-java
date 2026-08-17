@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sign Up Module</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="datetime" class="datetime-display"></div>
+
+    <div class="form-container">
+        <h2>User Sign Up</h2>
+        <form id="signupForm" onsubmit="return validateForm(event)">
+            
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter first name">
+                <span class="error" id="firstNameErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter last name">
+                <span class="error" id="lastNameErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="6-20 characters">
+                <span class="error" id="passwordErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
+                <span class="error" id="confirmPasswordErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+                <span class="error" id="genderErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" placeholder="123-456-7890">
+                <span class="error" id="mobileErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" name="dob" placeholder="DD-MM-YYYY">
+                <span class="error" id="dobErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="email" placeholder="example@domain.com">
+                <span class="error" id="emailErr"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Information</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="Enter comments..."></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

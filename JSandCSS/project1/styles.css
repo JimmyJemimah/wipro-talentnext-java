@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: purple;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.datetime-display {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.form-container {
+    background-color: gray;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #333333;
+    color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    background-color: #222222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-color: #111111;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #dddddd;
+    color: #000000;
+    font-weight: bold;
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #111111;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.error {
+    color: #ffcccc;
+    font-size: 12px;
+    margin-top: 4px;
+}
