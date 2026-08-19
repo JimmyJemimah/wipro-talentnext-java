@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>XYZ Library - Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .form-group { margin-bottom: 12px; }
+        label { display: inline-block; width: 120px; }
+        input[type="text"], input[type="password"], input[type="date"], select {
+            padding: 6px; width: 220px;
+        }
+        .error-msg { color: red; margin-left: 10px; font-weight: bold; }
+    </style>
+    <script>
+        function checkEmailAJAX() {
+            var email = document.getElementById("email").value.trim();
+            var emailMsg = document.getElementById("emailMsg");
+
+            if (email === "") {
+                emailMsg.innerText = "";
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    emailMsg.innerText = xhr.responseText.trim();
+                }
+            };
+            xhr.open("GET", "CheckEmailServlet?email=" + encodeURIComponent(email), true);
+            xhr.send();
+        }
+
+        function validateForm() {
+            var emailMsg = document.getElementById("emailMsg").innerText;
+            if (emailMsg !== "") {
+                alert("Please resolve the email error before submitting.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>XYZ Library - User Registration</h2>
+
+    <form action="RegisterServlet" method="post" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" onblur="checkEmailAJAX()" required />
+            <span id="emailMsg" class="error-msg"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required />
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation" name="occupation" />
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" />
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register" />
+            <a href="login.jsp" style="margin-left: 15px;">Already registered? Login</a>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX State City Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        select {
+            padding: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #777;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #0099cc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        function loadCities() {
+            var selectedState = document.getElementById("stateSelect").value;
+            var resultDiv = document.getElementById("cityResult");
+
+            if (selectedState === "") {
+                resultDiv.innerHTML = "";
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    resultDiv.innerHTML = xhr.responseText;
+                }
+            };
+            
+            xhr.open("GET", "CityServlet?state=" + encodeURIComponent(selectedState), true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+
+    <h3>Select a State:</h3>
+    <select id="stateSelect" onchange="loadCities()">
+        <option value="">-- Select State --</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="TamilNadu">Tamil Nadu</option>
+    </select>
+
+    <div id="cityResult"></div>
+
+</body>
+</html>

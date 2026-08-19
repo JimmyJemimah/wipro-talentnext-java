@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+        input[type="text"], input[type="password"], input[type="date"] {
+            padding: 6px;
+            width: 250px;
+        }
+        .status {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .available { color: green; }
+        .unavailable { color: red; }
+        .invalid { color: orange; }
+    </style>
+    <script>
+        function checkEmailAvailability() {
+            var emailInput = document.getElementById("email").value.trim();
+            var statusSpan = document.getElementById("emailStatus");
+
+            if (emailInput === "") {
+                statusSpan.innerHTML = "";
+                return;
+            }
+
+            // Regex for basic email pattern validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput)) {
+                statusSpan.className = "status invalid";
+                statusSpan.innerText = "Invalid Email Id";
+                return;
+            }
+
+            // AJAX call to servlet
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText.trim();
+                    if (response === "Available!") {
+                        statusSpan.className = "status available";
+                    } else if (response === "Not Available!") {
+                        statusSpan.className = "status unavailable";
+                    } else {
+                        statusSpan.className = "status invalid";
+                    }
+                    statusSpan.innerText = response;
+                }
+            };
+
+            xhr.open("GET", "CheckEmailServlet?email=" + encodeURIComponent(emailInput), true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+    <form>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="text" id="email" name="email" onblur="checkEmailAvailability()" required />
+            <span id="emailStatus" class="status"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" />
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" />
+        </div>
+        <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" />
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" />
+        </div>
+    </form>
+
+</body>
+</html>
