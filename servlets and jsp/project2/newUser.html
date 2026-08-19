@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New User Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .box { width: 320px; border: 1px solid #ccc; padding: 20px; margin: 0 auto; }
+        .err { color: red; margin-bottom: 10px; }
+    </style>
+    <script>
+        function validateForm() {
+            var pass = document.getElementById("password").value;
+            var rePass = document.getElementById("repassword").value;
+            if (pass !== rePass) {
+                document.getElementById("err-msg").innerText = "Password and Retyped Password do not match!";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>New User</h2>
+        <div id="err-msg" class="err"></div>
+        <form action="LoginServlet" method="post" onsubmit="return validateForm()">
+            <input type="hidden" name="action" value="register">
+            <div>
+                <label>User Name:</label><br>
+                <input type="text" name="username" required>
+            </div><br>
+            <div>
+                <label>Password:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div><br>
+            <div>
+                <label>Retype Password:</label><br>
+                <input type="password" id="repassword" name="repassword" required>
+            </div><br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>
