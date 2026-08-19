@@ -1,0 +1,8 @@
+<project name="Build1Project" default="target1">
+    <property name="course" value="ant"/>
+
+    <target name="target1">
+        <echo message="Inside target1 of build1.xml. Invoking target2 in build2.xml..."/>
+        <ant antfile="ANT/build2.xml" target="target2"/>
+    </target>
+</project>

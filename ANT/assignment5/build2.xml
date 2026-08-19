@@ -1,0 +1,8 @@
+<project name="Build2Project" default="target2">
+    <property name="course" value="junit"/>
+
+    <target name="target2">
+        <echo message="Inside target2 of build2.xml"/>
+        <echo message="Course value: ${course}"/>
+    </target>
+</project>

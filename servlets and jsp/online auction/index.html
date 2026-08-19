@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AP Auctions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .box { background-color: #fff9e6; border: 1px solid #e0d0b0; padding: 25px; width: 450px; text-align: center; margin: 0 auto; }
+        .error-header { color: red; font-weight: bold; font-size: 16px; margin-bottom: 15px; display: none; }
+        .form-row { margin: 10px 0; text-align: right; padding-right: 40px; }
+        .req-err { color: red; font-weight: bold; font-size: 13px; margin-right: 6px; display: none; }
+        input[type="text"] { width: 170px; padding: 3px; }
+        input[type="submit"] { margin-top: 15px; padding: 4px 12px; }
+    </style>
+    <script>
+        function validate() {
+            let valid = true;
+            const fields = ["itemId", "itemName", "name", "email", "amount"];
+            
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                const err = document.getElementById("err-" + id);
+                if (!el.value.trim()) {
+                    err.style.display = "inline";
+                    valid = false;
+                } else {
+                    err.style.display = "none";
+                }
+            });
+
+            document.getElementById("form-error").style.display = valid ? "none" : "block";
+            return valid;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>Welcome to AP Auctions. Please Enter Bid.</h2>
+        <div id="form-error" class="error-header">Required Data Missing! Enter and Resubmit.</div>
+        
+        <form action="BidServlet" method="post" onsubmit="return validate()">
+            <div class="form-row">
+                <span id="err-itemId" class="req-err">Required field!</span>
+                <label>Item ID: </label>
+                <input type="text" id="itemId" name="itemId">
+            </div>
+            <div class="form-row">
+                <span id="err-itemName" class="req-err">Required field!</span>
+                <label>Item Name: </label>
+                <input type="text" id="itemName" name="itemName">
+            </div>
+            <div class="form-row">
+                <span id="err-name" class="req-err">Required field!</span>
+                <label>Your Name: </label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-row">
+                <span id="err-email" class="req-err">Required field!</span>
+                <label>Your Email Address: </label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="form-row">
+                <span id="err-amount" class="req-err">Required field!</span>
+                <label>Amount Bid: </label>
+                <input type="text" id="amount" name="amount">
+            </div>
+            <div style="margin-top: 12px; font-size: 13px;">
+                <label>Auto-increment bid to match other bidders?: </label>
+                <input type="checkbox" name="autoIncrement" value="true">
+            </div>
+            <input type="submit" value="Submit Bid">
+        </form>
+    </div>
+</body>
+</html>

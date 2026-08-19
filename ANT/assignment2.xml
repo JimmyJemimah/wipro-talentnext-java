@@ -1,0 +1,32 @@
+<project name="TargetDependencies" default="one">
+    <property name="myProp" value="true"/>
+
+    <target name="five">
+        <echo message="Target five executed"/>
+    </target>
+
+    <target name="four" depends="five">
+        <echo message="Target four executed"/>
+    </target>
+
+    <target name="three" depends="four">
+        <echo message="Target three executed"/>
+    </target>
+
+    <target name="two" depends="three">
+        <echo message="Target two executed"/>
+    </target>
+
+    <target name="one" depends="two">
+        <echo message="Target one executed"/>
+    </target>
+
+    <!-- Testing conditional execution -->
+    <target name="testIf" if="myProp">
+        <echo message="Target testIf executed because myProp exists"/>
+    </target>
+
+    <target name="testUnless" unless="myProp">
+        <echo message="Target testUnless executed because myProp is missing"/>
+    </target>
+</project>

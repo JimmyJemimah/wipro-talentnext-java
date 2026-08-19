@@ -1,0 +1,9 @@
+<project name="MyFirstAnt" default="one">
+    <target name="one">
+        <echo message="Executing target one"/>
+    </target>
+
+    <target name="two">
+        <echo message="Executing target two"/>
+    </target>
+</project>

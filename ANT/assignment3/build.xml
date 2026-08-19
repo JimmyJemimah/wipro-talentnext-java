@@ -1,0 +1,25 @@
+<project name="PropertyAssignment" default="displayProps">
+    <!-- Load external properties file -->
+    <property file="build.properties"/>
+
+    <!-- Inline property -->
+    <property name="custom.greeting" value="Hello from Ant"/>
+
+    <target name="init">
+        <echo message="Initializing build directory..."/>
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="displayProps" depends="init">
+        <echo message="Built-in Ant Version: ${ant.version}"/>
+        <echo message="Built-in Java Version: ${ant.java.version}"/>
+        <echo message="Inline Property: ${custom.greeting}"/>
+        <echo message="External Property User: ${user.name.custom}"/>
+        <echo message="External Property Version: ${app.version}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <echo message="Cleaned up ${build.dir} folder."/>
+    </target>
+</project>
