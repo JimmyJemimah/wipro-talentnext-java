@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Assignment1.xsl"?>
+<FlowerDepot>
+    <Flower>
+        <Name>Rose</Name>
+        <Color>Red</Color>
+        <Price>10</Price>
+        <Availability>Yes</Availability>
+    </Flower>
+    <Flower>
+        <Name>Carnation</Name>
+        <Color>Yellow</Color>
+        <Price>15</Price>
+        <Availability>Yes</Availability>
+    </Flower>
+    <Flower>
+        <Name>Lilly</Name>
+        <Color>White</Color>
+        <Price>25</Price>
+        <Availability>No</Availability>
+    </Flower>
+</FlowerDepot>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products SYSTEM "assignment2.dtd">
+<products>
+    <product>
+        <id>QWZ5671</id>
+        <price>39.95</price>
+        <color>Red</color>
+        <color>Burgundy</color>
+        <color>Red</color>
+        <color>Burgundy</color>
+    </product>
+    <product>
+        <id>RRX9856</id>
+        <price>42.50</price>
+        <color>Red</color>
+        <color>Navy</color>
+        <color>Burgundy</color>
+        <color>Red</color>
+        <color>Navy</color>
+        <color>Burgundy</color>
+        <color>Black</color>
+        <color>Navy</color>
+        <color>Black</color>
+        <color>Burgundy</color>
+        <color>Black</color>
+    </product>
+</products>

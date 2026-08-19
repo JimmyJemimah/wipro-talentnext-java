@@ -1,0 +1,5 @@
+<!ELEMENT products (product+)>
+<!ELEMENT product (id, price, color+)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT color (#PCDATA)>

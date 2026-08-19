@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Students xmlns:marks="http://www.wipro.com/student/marks"
+          xmlns:info="http://www.wipro.com/student/info">
+
+    <!-- First set: Marks details -->
+    <marks:Student>
+        <marks:StudentID>S101</marks:StudentID>
+        <marks:TheoryMarks>85</marks:TheoryMarks>
+        <marks:PracticalMarks>90</marks:PracticalMarks>
+        <marks:TotalMarks>175</marks:TotalMarks>
+        <marks:Grade>A</marks:Grade>
+    </marks:Student>
+
+    <!-- Second set: Personal details -->
+    <info:Student>
+        <info:StudentID>S101</info:StudentID>
+        <info:Name>Rahul</info:Name>
+        <info:DOB>2008-05-15</info:DOB>
+        <info:Gender>Male</info:Gender>
+        <info:Course>C Programming</info:Course>
+    </info:Student>
+
+</Students>

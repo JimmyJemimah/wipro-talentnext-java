@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <xsl:template match="/">
+        <html>
+        <head>
+            <title>Mobile Phone Sales Summary</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                }
+                h2 {
+                    text-align: center;
+                }
+                table {
+                    border-collapse: collapse;
+                    margin: 0 auto;
+                    width: 90%;
+                }
+                th, td {
+                    border: 1px solid #777777;
+                    padding: 6px 10px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                th {
+                    background-color: #0099cc;
+                    color: white;
+                    font-weight: bold;
+                }
+                .highlight-red {
+                    background-color: red;
+                    color: white;
+                    font-weight: bold;
+                }
+            </style>
+        </head>
+        <body>
+            <h2>Mobile Phone Sales Summary</h2>
+            <table>
+                <tr>
+                    <th>ModelID</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>SIM Size</th>
+                    <th>Memory</th>
+                    <th>Camera</th>
+                    <th>Touch Screen</th>
+                    <th>Number Sold</th>
+                    <th>Store Name</th>
+                </tr>
+                <xsl:for-each select="MobileSales/Mobile">
+                    <tr>
+                        <td><xsl:value-of select="ModelID"/></td>
+                        <td><xsl:value-of select="Brand"/></td>
+                        <td><xsl:value-of select="Price"/></td>
+                        <td><xsl:value-of select="Color"/></td>
+                        <td><xsl:value-of select="SIMSize"/></td>
+                        <td><xsl:value-of select="Memory"/></td>
+                        <td><xsl:value-of select="Camera"/></td>
+                        <td><xsl:value-of select="TouchScreen"/></td>
+                        
+                        <!-- Apply RED background if sales > 10 -->
+                        <xsl:choose>
+                            <xsl:when select="NoSold &gt; 10">
+                                <td class="highlight-red">
+                                    <xsl:value-of select="NoSold"/>
+                                </td>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <td>
+                                    <xsl:value-of select="NoSold"/>
+                                </td>
+                            </xsl:otherwise>
+                        </xsl:choose>
+
+                        <td><xsl:value-of select="storeName"/></td>
+                    </tr>
+                </xsl:for-each>
+            </table>
+        </body>
+        </html>
+    </xsl:template>
+
+</xsl:stylesheet>

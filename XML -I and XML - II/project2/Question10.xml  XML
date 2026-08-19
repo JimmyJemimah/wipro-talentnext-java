@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classroom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <student rollno="101">
+        <firstname>Rahul</firstname>
+        <lastname>Kumar</lastname>
+        <division>A</division>
+        <marks>85</marks>
+    </student>
+    <student rollno="102">
+        <firstname>Anita</firstname>
+        <lastname>Sharma</lastname>
+        <division>B</division>
+        <marks>92</marks>
+    </student>
+</classroom>

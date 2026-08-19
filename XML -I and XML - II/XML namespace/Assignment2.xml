@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Products xmlns:mob="http://www.wipro.com/mobile"
+          xmlns:land="http://www.wipro.com/landline">
+
+    <!-- Mobile Product -->
+    <mob:Device>
+        <mob:Name>Moto E</mob:Name>
+        <mob:ID>123</mob:ID>
+        <mob:Processor>Qualcomm Snapdragon 200</mob:Processor>
+        <mob:Battery>2390 mAh</mob:Battery>
+    </mob:Device>
+
+    <!-- Landline Product -->
+    <land:Device>
+        <land:Name>Beetel M71 Landline</land:Name>
+        <land:ID>456</land:ID>
+        <land:Display>LCD Screen</land:Display>
+        <land:CallerID>Yes</land:CallerID>
+    </land:Device>
+
+</Products>

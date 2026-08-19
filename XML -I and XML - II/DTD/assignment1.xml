@@ -1,0 +1,13 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE employee [
+    <!ELEMENT employee (name, company, phone)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT company (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+]>
+<employee>
+    <name>Manju</name>
+    <company>Wipro</company>
+    <phone>9988776655</phone>
+</employee>

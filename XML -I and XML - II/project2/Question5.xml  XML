@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TVSCHEDULE SYSTEM "Question5.dtd">
+<TVSCHEDULE NAME="Weekly Grid">
+    <CHANNEL CHAN="Sports One">
+        <BANNER>Welcome to Sports Channel</BANNER>
+        <DAY>
+            <DATE>2026-08-20</DATE>
+            <PROGRAMSLOT VTR="101">
+                <TIME>09:00 AM</TIME>
+                <TITLE RATING="PG" LANGUAGE="English">Morning News</TITLE>
+                <DESCRIPTION>Daily sports updates and highlights.</DESCRIPTION>
+            </PROGRAMSLOT>
+        </DAY>
+    </CHANNEL>
+</TVSCHEDULE>
